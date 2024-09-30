@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     'users',
+    'exhibition',
 ]
 
 MIDDLEWARE = [
@@ -85,9 +86,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('POSTGRES_DB'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
         'OPTIONS': {
             'connect_timeout': 1200,
             'options': '-c statement_timeout=72000'}

@@ -22,7 +22,7 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Workmate Test",
+        title="Kittens API",
         default_version='v1',
         description="API description",
         terms_of_service="https://www.example.com/policies/terms/",
@@ -36,6 +36,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls', namespace='users')),
+    path('', include('exhibition.urls', namespace='exhibition')),
 
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]

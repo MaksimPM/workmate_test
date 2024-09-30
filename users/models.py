@@ -18,7 +18,7 @@ class User(AbstractUser):
     JWTToken = models.CharField(max_length=350, **NULLABLE, verbose_name='JWT Token')
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['name']
 
     def is_confirmation_code_valid(self):
         return (
