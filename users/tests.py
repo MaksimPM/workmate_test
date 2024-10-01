@@ -30,7 +30,7 @@ class UserAPITestCase(TestCase):
 
     def test_user_authentication(self):
         # Тест успешной аутентификации пользователя
-        User.objects.create(email='test@example.com', password='testpassword')
+        self.test_user_registration()
         response = self.client.post('/users/sign-in/', {
             'email': 'test@example.com',
             'password': 'testpassword'
