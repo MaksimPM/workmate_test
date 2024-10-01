@@ -12,5 +12,5 @@ router.register(r'ratings', RatingViewSet)
 
 urlpatterns = [
     path('exhibition/', include(router.urls)),
-]
+] + router.urls
 
