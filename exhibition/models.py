@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 
+NULLABLE = {'blank': True, 'null': True}
+
 
 class Breed(models.Model):
     name = models.CharField(max_length=100)
@@ -18,10 +20,10 @@ class Kitten(models.Model):
         ('mixed', 'Mixed'),
     ]
 
-    name = models.CharField(max_length=100)
-    color = models.CharField(max_length=10, choices=COLOR_CHOICES)
-    age = models.PositiveIntegerField()  # возраст в месяцах
-    description = models.TextField()
+    name = models.CharField(max_length=100, verbose_name='кличка')
+    color = models.CharField(max_length=10, choices=COLOR_CHOICES, verbose_name='цвет')
+    age = models.PositiveIntegerField(verbose_name='возраст в месяцах')  # возраст в месяцах
+    description = models.TextField(max_length=1000, verbose_name='описание', **NULLABLE)
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE, related_name='kittens')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
