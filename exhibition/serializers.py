@@ -15,11 +15,12 @@ class KittenSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Kitten
-        fields = ['pk', 'name', 'color', 'age', 'description', 'breed', 'user']
+        fields = '__all__'
 
 
 class RatingSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.name')
+    kitten = serializers.ReadOnlyField(source='kitten.name')
 
     class Meta:
         model = Rating
