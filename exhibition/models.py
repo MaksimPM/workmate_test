@@ -10,6 +10,11 @@ class Breed(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'порода'
+        verbose_name_plural = 'породы'
+        ordering = ('pk',)
+
 
 class Kitten(models.Model):
     COLOR_CHOICES = [
@@ -30,6 +35,11 @@ class Kitten(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'котенок'
+        verbose_name_plural = 'котята'
+        ordering = ('pk',)
+
 
 class Rating(models.Model):
     kitten = models.ForeignKey(Kitten, on_delete=models.CASCADE, related_name='ratings')
@@ -38,3 +48,8 @@ class Rating(models.Model):
 
     def __str__(self):
         return f'{self.kitten} - {self.rating}'
+
+    class Meta:
+        verbose_name = 'рейтинг'
+        verbose_name_plural = 'рейтинги'
+        ordering = ('pk',)
