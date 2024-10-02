@@ -5,9 +5,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
-class BreedViewSet(viewsets.ReadOnlyModelViewSet):
+class BreedViewSet(viewsets.ModelViewSet):
     queryset = Breed.objects.all()
     serializer_class = BreedSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class KittenViewSet(viewsets.ModelViewSet):
