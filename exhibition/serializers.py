@@ -11,7 +11,6 @@ class BreedSerializer(serializers.ModelSerializer):
 
 class KittenSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.name')
-    breed = serializers.ReadOnlyField(source='breed.name')
 
     class Meta:
         model = Kitten
